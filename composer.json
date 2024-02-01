@@ -1,0 +1,32 @@
+{
+    "name": "superbad-cn/custom-configs",
+    "alias": "Custom configs",
+    "description": "Custom configs for DcatAdmin",
+    "type": "library",
+    "keywords": ["dcat-admin", "extension"],
+    "homepage": "https://github.com/superbad-cn/custom-configs",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chen",
+            "email": "120140644@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "dcat/laravel-admin": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SuperBadCN\\CustomConfig\\": "src/"
+        }
+    },
+    "extra": {
+        "dcat-admin": "SuperBadCN\\CustomConfig\\CustomConfigsServiceProvider",
+        "laravel": {
+            "providers": [
+                "SuperBadCN\\CustomConfig\\CustomConfigsServiceProvider"
+            ]
+        }
+    }
+}
