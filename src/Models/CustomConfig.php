@@ -65,4 +65,43 @@ class CustomConfig extends Model
     {
         return $this->hasMany(CustomConfigItem::class, 'custom_config_id');
     }
+
+    public function getValueAttribute($value)
+    {
+        $value = '';
+        switch ($this->type) {
+            case 1:
+                $value = $this->value1;
+                break;
+            case 2:
+                $value = $this->value2;
+                break;
+            case 3:
+                $value = $this->full_image_url;
+                break;
+            case 4:
+                $value = $this->full_image_urls;
+                break;
+            case 5:
+                $value = $this->value5;
+                break;
+            case 6:
+                $value = $this->value6;
+                break;
+            case 7:
+                $value = $this->value7;
+                break;
+            case 8:
+                $value = $this->value8;
+                break;
+            case 9:
+                $value = $this->value9;
+                break;
+            case 10:
+            case 11:
+                $value = $this->items;
+            default:
+                break;
+        }
+    }
 }
