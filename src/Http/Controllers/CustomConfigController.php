@@ -59,7 +59,7 @@ class CustomConfigController extends AdminController
                 ->options(CustomConfig::type())
                 ->default(1)
                 ->when(1, function (Form $form) {
-                    $form->textarea('value1', Provider::trans('custom-config.value'));
+                    $form->textarea('value1', Provider::trans('custom-config.value'))->rows(2);
                 })->when(2, function (Form $form) {
                     $form->editor('value2', Provider::trans('custom-config.value'))->imageDirectory('images/' . date("Y/m"))->height('600');
                 })->when(3, function (Form $form) {
@@ -75,19 +75,15 @@ class CustomConfigController extends AdminController
                 })->when(8, function (Form $form) {
                     $form->datetime('value8', Provider::trans('custom-config.value'));
                 })->when(9, function (Form $form) {
-                    $form->switch('value9');
+                    $form->switch('value9', Provider::trans('custom-config.value'));
                 })->when(10, function (Form $form) {
-                    $form->hasMany('items', Provider::trans('custom-config.value'), function (Form\NestedForm $form) {
-                        $form->textarea('value', Provider::trans('custom-config.value'));
-                    });
-                })->when(11, function (Form $form) {
-                    $form->hasMany('items', Provider::trans('custom-config.value'), function (Form\NestedForm $form) {
-                        $form->textarea('value', Provider::trans('custom-config.value'));
+                    $form->hasMany('items', Provider::trans('custom-config.value'), function (Form\NestedForm $form){
+                        $form->editor('value', Provider::trans('custom-config.value'))->imageDirectory('images/' . date("Y/m"))->height('600');
                     });
                 });
             $form->saved(function (Form $form) {
                 // TODO:移除其他type的value值
-                $type = $form->model()->type;
+                // $type = $form->model()->type;
             });
 
             $form->display('created_at');

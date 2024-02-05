@@ -16,7 +16,7 @@ class CreateCustomConfigsTable extends Migration
         if (! Schema::hasTable('admin_custom_configs')) {
             Schema::create('admin_custom_configs', function (Blueprint $table) {
                 $table->id();
-                $table->string('title')->comment('标题');
+                $table->string('title')->nullable()->comment('标题');
                 $table->string('key')->comment('键');
                 $table->tinyInteger('type')->comment('类型');
                 $table->text('value1')->nullable()->comment('值');

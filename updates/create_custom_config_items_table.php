@@ -17,7 +17,7 @@ class CreateCustomConfigItemsTable extends Migration
             Schema::create('admin_custom_config_items', function (Blueprint $table) {
                 $table->id();
                 $table->unsignedBigInteger('custom_config_id')->comment('配置ID');
-                $table->text('value')->comment('值');
+                $table->text('value')->nullable()->comment('值');
                 $table->timestamps();
             });
         }
